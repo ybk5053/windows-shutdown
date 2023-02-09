@@ -11,4 +11,4 @@ EXPOSE 3030
 
 RUN chmod +x /app/windows-shutdown-${TARGETARCH}
 
-CMD ["/app/windows-shutdown-${TARGETARCH}"]
+CMD /app/windows-shutdown-${TARGETARCH}
