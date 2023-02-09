@@ -4,10 +4,14 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"os/exec"
 )
 
 func main() {
+	if len(os.Args) > 1 {
+		return
+	}
 	http.HandleFunc("/", handler)
 	log.Fatal(http.ListenAndServe(":3030", nil))
 }

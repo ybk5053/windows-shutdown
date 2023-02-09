@@ -39,8 +39,14 @@ jobs:
       - name: Build Go-arm64
         run: env GOOS=linux GOARCH=arm64 go build -o windows-shutdown-arm64
 
+      # - name: Test Go-arm64
+      #   run: ./windows-shutdown-arm64 123
+
       - name: Build Go-amd64
         run: env GOOS=linux GOARCH=amd64 go build -o windows-shutdown-amd64
+
+      - name: Test Go-amd64
+        run: ./windows-shutdown-amd64 123
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
