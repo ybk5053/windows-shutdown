@@ -34,9 +34,7 @@ jobs:
         uses: docker/setup-buildx-action@v2
         
       - name: Set up Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: '1.19'
+        uses: actions/setup-go@v3.5.0
 
       - name: Build Go-arm64
         run: env GOOS=linux GOARCH=arm64 go build -o windows-shutdown-arm64
