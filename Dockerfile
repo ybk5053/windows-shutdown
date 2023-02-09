@@ -1,5 +1,6 @@
 FROM alpine:latest
 ARG TARGETARCH
+ENV ARCH=${TARGETARCH}
 
 WORKDIR /app
 
@@ -11,4 +12,4 @@ EXPOSE 3030
 
 RUN chmod +x /app/windows-shutdown-${TARGETARCH}
 
-CMD /app/windows-shutdown-${TARGETARCH}
+CMD /app/windows-shutdown-${ARCH}
