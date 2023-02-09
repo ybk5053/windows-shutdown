@@ -35,8 +35,6 @@ jobs:
         
       - name: Set up Go
         uses: actions/setup-go@v3.5.0
-        with:
-          cache: true
 
       - name: Build Go-amd64
         run: env GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o windows-shutdown-amd64
