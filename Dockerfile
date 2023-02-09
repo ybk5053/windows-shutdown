@@ -4,7 +4,7 @@ ENV ARCH=${TARGETARCH}
 
 WORKDIR /app
 
-RUN apk add samba
+RUN apk --no-cache add samba
 
 COPY windows-shutdown-${TARGETARCH} ./
 

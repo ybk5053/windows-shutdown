@@ -24,7 +24,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
+          username: ${{ github.actor }}golang
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up QEMU
@@ -35,18 +35,20 @@ jobs:
         
       - name: Set up Go
         uses: actions/setup-go@v3.5.0
-
-      - name: Build Go-arm64
-        run: env GOOS=linux GOARCH=arm64 go build -o windows-shutdown-arm64
-
-      # - name: Test Go-arm64
-      #   run: ./windows-shutdown-arm64 123
+        with:
+          cache: true
 
       - name: Build Go-amd64
-        run: env GOOS=linux GOARCH=amd64 go build -o windows-shutdown-amd64
+        run: env GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o windows-shutdown-amd64
 
       - name: Test Go-amd64
         run: ./windows-shutdown-amd64 123
+
+      - name: Build Go-arm64
+        run: env GOOS=linux GOARCH=arm64 CGO_ENABLED=0 go build -o windows-shutdown-arm64
+
+      - name: Test Go-arm64
+        run: ./windows-shutdown-arm64 123
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
