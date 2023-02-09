@@ -39,10 +39,10 @@ jobs:
           go-version: '1.19'
 
       - name: Build Go-arm64
-        run: env GOOS=linux GOARCH=arm64 go build ./ -o windows-shutdown-arm64
+        run: env GOOS=linux GOARCH=arm64 go build -o windows-shutdown-arm64
 
       - name: Build Go-amd64
-        run: env GOOS=linux GOARCH=amd64 go build ./ -o windows-shutdown-amd64
+        run: env GOOS=linux GOARCH=amd64 go build -o windows-shutdown-amd64
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
