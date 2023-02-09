@@ -10,7 +10,7 @@ import (
 
 func main() {
 	if len(os.Args) > 1 {
-		return
+		log.Fatal("Error")
 	}
 	http.HandleFunc("/", handler)
 	log.Fatal(http.ListenAndServe(":3030", nil))
