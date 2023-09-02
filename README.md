@@ -9,8 +9,5 @@ Enable broadcast forwarding for docker:
     sysctl -w net.ipv4.conf.all.bc_forwarding=1
     sysctl -w net.ipv4.conf.br-xxxx.bc_forwarding=1
 
-Edit Windows registry
-
-    Computer\HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System
-
-add DWORD, "LocalAccountTokenFilterPolicy", Value = 1
+Windows:
+    Enable file and printer sharing
