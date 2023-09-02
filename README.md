@@ -11,3 +11,6 @@ Enable broadcast forwarding for docker:
 
 Windows:
     Enable file and printer sharing
+    Edit registry add DWORD "LocalAccountTokenFilterPolicy", value = 1 to
+
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
